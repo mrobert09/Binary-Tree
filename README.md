@@ -8,7 +8,7 @@ Used to create the necessary BinaryTree object and/or UnitTest object. The "fron
 
 ## BinaryTree.cpp
 
-All the logic related to the binary tree structure (not node specific). Has an overloaded "<<" operator for custom printing the binary tree in stdout. Includes the following methods:
+All the logic related to the binary tree structure (not node specific). Has an overloaded "<<" operator for custom printing the binary tree in stdout which can be found in the header file. This is where the bulk of the logic of the program occurs. Includes the following methods:
 
 ### BinaryTree()  -Public
   Default constructor, only inititializes an empty root.
@@ -57,3 +57,33 @@ All the logic related to the binary tree structure (not node specific). Has an o
   
 ### int getNumElements()  -Public
   Returns number of elements in the tree by calling getInOrder and then calculating size of the vector.
+  
+## Node.cpp
+
+Holds the Node class / methods. As the interaction with nodes occurs within the BinaryTree class, this class mostly just has basic data held by the nodes. Each node has 5 main data members:
+  - Value
+  - Parent Node
+    - nullptr if root
+  - Left Child
+    - nullptr if doens't exist
+  - Right Child
+    - nullptr if doesn't exist
+  -  Address of self in memory
+  
+In addition, there are getters and setters where appropriate.
+  
+## UnitTest.cpp
+  
+Holds the UnitTest class and it's methods. I did not use a library for UnitTests and instead created them on my own. Most common way to call the UnitTest is to pass an integer to the constructor which is the number of tests to run. At the top of the file you can define the max number of elements (MAX_ELEMENTS) to choose and the may number each element can be (MAX_NUMBER). Currently the range is 0 - MAX for both. Each trial creates a new BinaryTree class, passes in a random number of elements of random values based on the MAX_ELEMENTS and MAX_NUMBER values, then deconstructs each tree before starting again. At the end of the tests, prints out how many tests failed. Runs 4 tests:
+  
+### Length
+  Tests that the binary tree has the same number of elements in it that was passed to it. Does so by comparing the size of the vector generated randomly and the size of the binary list returned.
+  
+### In-Order Depth First Search
+  Tests that the elements are being returned in the correct numerical order when performing a depth first search. As a byproduct, it is also testing that elements were inserted correctly as well.
+  
+### Remove Node
+  Tests that removing an element works as expected. Does so by randomly picking an index in the original vector and removing the value located there, and then removing that same value from the binary tree. It then compares the in order depth first search with what is left of the sorted vector to check for equality. Due to the structure of the binary tree, it doesn't matter if the indices of same numbers is correct (for example, if there were three 5s in the vector and it removed the third one, it is okay if the binary tree removes the first one it encounters).
+  
+### Remove Non-Existent Node
+  Tests that removing an element that isn't in the list doesn't break the tree. Currently it does this simply by attempting to remove a value of 1 more than the max element. I recognize though that this isn't a robust test and misses many cases of bad removal (lower than minimum, middle of the tree, invalid characters, etc.)
