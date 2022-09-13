@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1663043890 source:c:\users\admin\desktop\c++ examples\binary tree\binarytree.cpp
+	"Node.h"
+	"BinaryTree.h"
+	<vector>
+	<string>
+
+1663032134 c:\users\admin\desktop\c++ examples\binary tree\binarytree.h
+	"Node.h"
+	<iostream>
+	<vector>
+
+1663041444 c:\users\admin\desktop\c++ examples\binary tree\node.h
+
+1663043773 source:c:\users\admin\desktop\c++ examples\binary tree\main.cpp
+	"Node.h"
+	"BinaryTree.h"
+	"UnitTest.h"
+	<iostream>
+
+1663043709 source:c:\users\admin\desktop\c++ examples\binary tree\node.cpp
+	"Node.h"
+
+1663042138 c:\users\admin\desktop\c++ examples\binary tree\unittest.h
+	<random>
+	<vector>
+	"BinaryTree.h"
+
+1663043868 source:c:\users\admin\desktop\c++ examples\binary tree\unittest.cpp
+	"UnitTest.h"
+	"BinaryTree.h"
+	<iostream>
+	<random>
+	<chrono>
+	<algorithm>
+	<vector>
+
